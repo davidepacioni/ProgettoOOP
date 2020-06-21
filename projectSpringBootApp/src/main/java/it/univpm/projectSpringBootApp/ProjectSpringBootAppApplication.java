@@ -14,10 +14,6 @@ public class ProjectSpringBootAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectSpringBootAppApplication.class, args);
-		JSONObject json = DownloadJSON.getCompleteJSON();
-		ArrayList<PostInstagram> lista = ParseJSON.JSONParsr(json);
-		System.out.println(lista);
-		
 	}
 
 }

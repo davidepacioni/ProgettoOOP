@@ -6,16 +6,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.univpm.projectSpringBootApp.service.PostServiceImp;
+
 @RestController
 public class RequestController {
 	
 	/**
-	 * Rotta che mostra tutti i post presenti nel JSON scaricato
-	 * @return Restituisce i post 
+	 * Rotta che restituisce i post in formato JSON
+	 * @return Restituisce i post in formato JSON
 	 */
 	@RequestMapping(value = "/data", method = RequestMethod.GET)
 	public ResponseEntity<Object> getPosts() {
-		
-		return new ResponseEntity<>(service.getPost(), HttpStatus.OK);
+		return new ResponseEntity<Object>(PostServiceImp.getPost(), HttpStatus.OK);
 	}
 }
