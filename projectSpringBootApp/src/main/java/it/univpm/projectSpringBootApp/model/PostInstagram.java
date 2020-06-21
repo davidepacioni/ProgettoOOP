@@ -3,6 +3,9 @@ package it.univpm.projectSpringBootApp.model;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 
@@ -14,7 +17,7 @@ public class PostInstagram {
 	private String id;
 
 	@JsonPropertyDescription("Data del post")
-	private Date creation_date;
+	private LocalDate creation_date;
 
 	@JsonPropertyDescription("tipologia del post")
 	private String type;
@@ -35,13 +38,14 @@ public class PostInstagram {
 		this.id = id;
 	}
 
-	public Date getCreation_date() {
+	public LocalDate getCreation_date() {
 		return creation_date;
 	}
 
 	public void setCreation_date(String date) throws ParseException {
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss+SSSS", Locale.ITALY);
-		creation_date = format.parse(date);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss+SSSS", Locale.ITALY);
+		LocalDateTime creation = LocalDateTime.parse(date, formatter);
+		creation_date= creation.toLocalDate();
 	}
 
 	public String getType() {
@@ -52,9 +56,9 @@ public class PostInstagram {
 		this.type = type;
 
 	}
-
+	
 	@Override
 	public String toString() {
-		return "id: " + id + "\ttipologia: " + type + "\tdata: " + creation_date  +"\n";
+		return "id: " + id + "\ttipologia: " + type + "\tdata: " + creation_date+"\n";
 	}
 }

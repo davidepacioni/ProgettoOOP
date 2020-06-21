@@ -19,7 +19,7 @@ public class PostServiceImp implements PostService {
 	public PostServiceImp() {
 		try {
 			lista = ParseJSON.JSONParsr(DownloadJSON.getCompleteJSON());
-			
+			System.out.println(lista);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
