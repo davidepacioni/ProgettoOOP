@@ -55,6 +55,6 @@ public class PostInstagram {
 
 	@Override
 	public String toString() {
-		return "id: " + id + "\ttipologia: " + type + "\tdata: " + creation_date + "\n";
+		return "id: " + id + "\ttipologia: " + type + "\tdata: " + creation_date  +"\n";
 	}
 }
