@@ -9,5 +9,7 @@ public interface PostService {
 		return null;
 	}
 	
+	public abstract String getMetadata(Class<?> classe);
+
 
 }
