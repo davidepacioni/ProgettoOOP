@@ -4,6 +4,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
+import it.univpm.projectSpringBootApp.exception.FilterIllegalArgumentException;
+import it.univpm.projectSpringBootApp.exception.FilterNotFoundException;
+import it.univpm.projectSpringBootApp.exception.InternalGeneralException;
 import it.univpm.projectSpringBootApp.model.PostInstagram;
 import it.univpm.projectSpringBootApp.utility.DownloadJSON;
 import it.univpm.projectSpringBootApp.utility.ParseJSON;
@@ -30,8 +33,8 @@ public class FilterService {
 	 * @throws    InternalGeneralException errori interni. (se si verifica è necessaria una 
 	 * 			  revisione del codice)
     */
-	public static Filter instanceFilter(String column,String operator,Object param) {
-		   //throws FilterNotFoundException, FilterIllegalArgumentException,InternalGeneralException{
+	public static Filter instanceFilter(String column,String operator,Object param)
+		   throws FilterNotFoundException, FilterIllegalArgumentException,InternalGeneralException{
 		
 		Filter filtro = null;
 		String filterName = new String("Filter"+column+operator);
@@ -49,27 +52,27 @@ public class FilterService {
 		
 	    //entra qui se il nome filtro non è corretto 
 	    catch(ClassNotFoundException e){
-	    	//throw new FilterNotFoundException("The filter in field: '"+column+"' with operator: '"+
-	          //                                  operator +"' does not exist");
+	    	throw new FilterNotFoundException("The filter in field: '"+column+"' with operator: '"+
+	                                            operator +"' does not exist");
 	    }
 		
 		//entra qui se sbagliate maiuscole e minuscole
 	    catch(NoClassDefFoundError e){
-	    	//throw new FilterNotFoundException(
-	    	//		"Error typing: '"+filterName+"' uppercase and lowercase error");
+	    	throw new FilterNotFoundException(
+	    			"Error typing: '"+filterName+"' uppercase and lowercase error");
 	    }
 
 	    //entra qui se il costruttore chiamato da newInstance lancia un eccezione 
 	   	catch (InvocationTargetException e) {  
 	   		//genero una nuova eccezione 
-	   		// throw new FilterIllegalArgumentException(e.getTargetException().getMessage()
-	   		//		+ " Expected in '"+column+"'");
+	   		 throw new FilterIllegalArgumentException(e.getTargetException().getMessage()
+	   				+ " Expected in '"+column+"'");
 	   	}
 		
 	    catch (LinkageError | NoSuchMethodException | SecurityException 
 	    		| InstantiationException | IllegalAccessException e ) {
 		       e.printStackTrace();
-		    	//throw new InternalGeneralException("try later");
+		    	throw new InternalGeneralException("try later");
 		    }
 
 		
