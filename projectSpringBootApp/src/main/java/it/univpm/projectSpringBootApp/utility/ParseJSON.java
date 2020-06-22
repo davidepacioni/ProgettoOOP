@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.univpm.projectSpringBootApp.model.PostInstagram;
 import it.univpm.projectSpringBootApp.service.FilterService;
+import it.univpm.projectSpringBootApp.utility.other.Filter;
 
 public class ParseJSON {
 

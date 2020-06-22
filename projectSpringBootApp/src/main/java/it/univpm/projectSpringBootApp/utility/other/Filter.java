@@ -1,4 +1,4 @@
-package it.univpm.projectSpringBootApp.utility;
+package it.univpm.projectSpringBootApp.utility.other;
 
 import it.univpm.projectSpringBootApp.model.PostInstagram;
 

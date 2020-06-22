@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 import it.univpm.projectSpringBootApp.model.PostInstagram;
 import it.univpm.projectSpringBootApp.utility.DownloadJSON;
-import it.univpm.projectSpringBootApp.utility.Filter;
 import it.univpm.projectSpringBootApp.utility.ParseJSON;
+import it.univpm.projectSpringBootApp.utility.other.Filter;
 
 public class FilterService {
 	
