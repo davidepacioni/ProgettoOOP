@@ -49,12 +49,10 @@ public class Stats {
 		ArrayList<Double> listaPost = new ArrayList<Double>();
 		
 		for(int i =0; i < post.size();i++) {
-				if(field.equals("Id"))
-					listaPost.add((double)post.get(i).getId());
-				else if(field.equals("Type"))
+				if(field.equals("Type"))
 					listaPost.add((double)post.get(i).getType());
 				else if(field.equals("Date"))
-					listaTweet.add((double)post.get(i).getCreation_date());
+					listaPost.add((double)post.get(i).getCreation_date());
 		}
 		return listaPost;
 	}
