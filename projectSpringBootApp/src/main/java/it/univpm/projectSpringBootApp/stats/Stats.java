@@ -53,6 +53,8 @@ public class Stats {
 					listaPost.add((double)post.get(i).getId());
 				else if(field.equals("Type"))
 					listaPost.add((double)post.get(i).getType());
+				else if(field.equals("Date"))
+					listaTweet.add((double)post.get(i).getCreation_date());
 		}
 		return listaPost;
 	}
